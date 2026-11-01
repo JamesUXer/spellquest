@@ -1,0 +1,13 @@
+.cut-in{position:absolute;inset:0;overflow:hidden;background:#fff}
+[hidden]{display:none!important}
+.cut-in .panel{position:absolute;top:0;bottom:0;width:56%;overflow:hidden;background:#f6f6f4}
+.boy-panel{left:0;clip-path:polygon(0 0,100% 0,87% 100%,0 100%)}
+.owl-panel{right:0;clip-path:polygon(13% 0,100% 0,100% 100%,0 100%);background:#e8e8e6}
+.speed-lines{position:absolute;width:120%;height:100%;left:-10%;top:0;overflow:visible}
+.speed-lines line{stroke:#222;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.cut-in .portrait{position:absolute;inset:0;overflow:hidden}
+.portrait img{position:absolute;width:200%;max-width:none;height:auto;bottom:-25%;pointer-events:none}
+.boy img{left:0}
+.owl img{right:-8%}
+.divider{position:absolute;left:50%;top:-10%;height:120%;width:3px;background:#222;transform:rotate(7deg)}
+@media(prefers-reduced-motion:reduce){.portrait,.speed-lines{transform:none!important}.cut-in{clip-path:none!important}}

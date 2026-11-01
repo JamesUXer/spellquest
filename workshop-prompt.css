@@ -1,0 +1,10 @@
+/* Story prompt and recorded-word controls stay with the existing caption surface. */
+.spell-prompt{display:flex;align-items:center;flex-wrap:wrap;gap:8px 16px;text-align:left}
+.spell-prompt [data-riddle]{flex:1 1 22rem;margin:0;font:16px/1.5 Georgia,serif;text-wrap:pretty}
+.spell-prompt button{flex:0 0 auto;min-height:44px;padding:10px 14px;border:1px solid #222;border-radius:3px;background:#fff;color:#171717;font:14px/1.5 Arial,sans-serif;cursor:pointer}
+.spell-prompt button:hover{background:#eee}
+.spell-prompt button:focus-visible{outline:3px solid #171717;outline-offset:3px}
+.spell-prompt [role=status]:not(.visually-hidden){flex-basis:100%;margin:0;font:14px/1.5 Arial,sans-serif}
+#scene-spell-prompt{max-width:64ch;margin:12px auto 16px}
+#bench-spell-prompt{margin:0 0 12px;padding:0 0 12px;border-bottom:1px solid #888}
+@media(max-width:600px){.spell-prompt{gap:8px}.spell-prompt [data-riddle]{flex-basis:100%}}

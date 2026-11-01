@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>SpellQuest · The owl’s workshop</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="workshop.css?v=journey-art-1">
+  <link rel="stylesheet" href="entrance-motion.css?v=journey-art-1">
+  <link rel="stylesheet" href="workbench-surface.css?v=rearrange-1">
+  <link rel="stylesheet" href="awakening-art.css?v=ink-cat-1">
+  <link rel="stylesheet" href="workshop-prompt.css?v=riddle-1">
+</head>
+<body class="workshop">
+  <header class="workshop-header">
+    <span class="wordmark">SpellQuest</span>
+    <div class="workshop-navigation"><button type="button" id="back-to-owl" hidden>Back to the owl</button><a href="./">Back to the forest</a></div>
+  </header>
+  <section id="owl-scene" class="owl-scene" aria-labelledby="scene-title" hidden>
+    <h1 id="scene-title" tabindex="-1">The owl’s workshop</h1>
+    <div id="scene-picture" class="scene-picture" data-phase="ready">
+    <canvas id="workshop-scene" role="img" aria-label="The explorer stands on the left, facing a tall owl on the right. Between them is a workbench with a sleeping pen and an inkpot."></canvas>
+      <button type="button" id="approach-workbench" aria-label="Choose the pen to begin" aria-describedby="scene-letters"><span class="visually-hidden">Choose the pen to begin</span></button>
+      <div id="workshop-cut-in" class="cut-in" hidden aria-hidden="true">
+        <template id="workshop-entrance-art">
+        <div class="panel boy-panel"><svg class="speed-lines" viewBox="0 0 800 800" preserveAspectRatio="none"></svg><div class="portrait boy"><img src="assets/workshop/entrance-characters-v1.png" alt=""></div></div>
+        <div class="panel owl-panel"><svg class="speed-lines" viewBox="0 0 800 800" preserveAspectRatio="none"></svg><div class="portrait owl"><img src="assets/workshop/entrance-characters-v1.png" alt=""></div></div>
+        <span class="divider"></span>
+        </template>
+      </div>
+    </div>
+    <p id="scene-line">Help the owl solve the riddle and wake the sleeping pen.</p>
+    <p id="workshop-entrance-status" class="visually-hidden" role="status" aria-atomic="true"></p>
+    <button type="button" id="skip-workshop-entrance" hidden>Skip entrance</button>
+    <div id="scene-spell-prompt" class="spell-prompt" data-spell-prompt hidden>
+      <p data-riddle></p>
+      <button type="button" aria-pressed="false">Hear the word</button>
+      <p class="visually-hidden" role="status" aria-atomic="true"></p>
+    </div>
+    <p id="scene-letters"></p>
+    <button type="button" id="take-pen" hidden>Take the pen</button>
+    <a id="leave-workshop" href="./" hidden>Return to the forest</a>
+    <p id="receipt-status" role="status" aria-atomic="true"></p>
+    <button type="button" id="revisit-workbench" hidden>Back to your spell</button>
+  </section>
+  <section id="awakening" class="awakening" aria-labelledby="awakening-title" hidden>
+    <h1 id="awakening-title" class="visually-hidden" tabindex="-1">The pen awakens</h1>
+    <p id="attempted-spell"></p>
+    <svg id="awakening-picture" viewBox="0 0 900 430" role="img" aria-labelledby="awakening-description">
+      <title id="awakening-description">The sleeping pen rests beside an inkpot.</title>
+      <path class="awakening-table" d="M65 365 H835 M95 374 H805"/>
+      <g id="awakening-inkpot" class="inkpot"><g class="awakening-fallback"><path d="M667 300 L660 354 Q695 369 733 354 L726 300 Z"/><ellipse cx="696" cy="300" rx="29" ry="8"/><path d="M678 307 Q696 313 714 307"/></g></g>
+      <g id="question-drawing"><path id="question-stroke" d="M350 140 C350 65 470 60 480 130 C490 185 410 172 410 225"/><circle id="question-dot" cx="410" cy="260" r="5"/></g>
+      <g id="cat-drawing" hidden>
+        <path class="cat-tail" d="M490 327 C408 330 410 290 410 225 C410 172 490 185 480 130 C470 60 350 65 350 140"/>
+        <g id="cat-sitting"><g class="awakening-fallback">
+          <path d="M480 328 Q469 280 488 255 L481 218 L507 231 Q528 220 548 231 L573 217 L567 258 Q587 287 575 328 Z"/>
+          <path d="M507 275 L505 327 M550 275 L553 327 M488 330 H519 M544 330 H578"/>
+          <path d="M503 250 L508 249 M546 249 L551 250 M519 260 L533 260 L526 266 Z"/>
+          <path d="M491 260 L473 256 M491 266 L472 269 M562 259 L582 253 M562 266 L581 269"/>
+        </g></g>
+        <g id="cat-peering" hidden><g class="awakening-fallback">
+          <path d="M482 328 Q473 277 510 266 Q543 252 569 278 L589 316 L580 330 Z"/>
+          <path d="M555 279 L566 247 L590 261 Q611 256 629 271 L653 259 L644 290 Q636 315 608 316 Q580 308 555 279 Z"/>
+          <path d="M587 283 L594 286 M624 286 L631 283 M607 300 L617 300 M510 299 L511 330 M563 315 L564 330 M589 314 L620 328 L657 326"/>
+          <path d="M627 302 L658 297 M628 308 L658 312"/>
+        </g></g>
+      </g>
+      <path id="return-ink" d="M525 305 C600 230 663 269 620 317 C572 365 340 288 249 333" hidden/>
+      <g id="awakened-pen"><g class="awakening-fallback"><path d="M0 0 L-12 -23 L-9 -110 Q-5 -117 1 -110 L6 -23 Z"/><path d="M-12 -23 L6 -23 M0 0 L-3 -23 M-8 -99 L0 -99"/></g></g>
+    </svg>
+    <p id="awakening-caption" role="status" aria-atomic="true"></p>
+    <div class="awakening-controls">
+      <button type="button" id="pause-awakening">Pause</button>
+      <button type="button" id="replay-awakening" hidden>Watch again</button>
+      <button type="button" id="receive-pen" hidden>Take the pen</button>
+      <button type="button" id="awakening-to-bench">Back to your spell</button>
+      <button type="button" id="awakening-to-owl">Back to the owl</button>
+    </div>
+  </section>
+  <main class="workbench" aria-labelledby="workshop-title">
+    <h1 id="workshop-title" class="visually-hidden" tabindex="-1">The owl’s workshop</h1>
+    <div class="bench-table">
+    <section class="construction" aria-label="Your spell" aria-describedby="instruction">
+      <p id="spell-word" class="spell-word visually-hidden" aria-label="Current spelling: c, u, r, blank, blank, blank, blank">cur____</p>
+      <div id="spell-circuit" class="circuit" aria-describedby="spell-word">
+        <div class="fixed-prefix" aria-hidden="true">
+          <div class="word-block"><svg class="block-face" viewBox="15 5 70 95"><path d="M70 33 C20 12 15 90 70 75"/></svg></div>
+          <div class="word-block"><svg class="block-face" viewBox="15 5 70 95"><path d="M27 28 L27 59 C27 85 70 85 70 59 L70 28 L70 78"/></svg></div>
+          <div class="word-block"><svg class="block-face" viewBox="15 5 70 95"><path d="M30 78 V28 M30 46 C30 30 48 24 64 30"/></svg></div>
+        </div>
+        <ol id="sockets" class="sockets" aria-label="Spell circuit, left to right">
+          <li aria-label="Socket 1: empty"><span aria-hidden="true"></span></li>
+          <li aria-label="Socket 2: empty"><span aria-hidden="true"></span></li>
+          <li aria-label="Socket 3: empty"><span aria-hidden="true"></span></li>
+          <li aria-label="Socket 4: empty"><span aria-hidden="true"></span></li>
+        </ol>
+        <div id="pen-track" class="pen-track">
+          <svg id="trace-direction" aria-hidden="true" viewBox="0 0 20 20" hidden><path d="M4 4 L12 10 L4 16"/></svg>
+
+          <button type="button" id="pen" aria-label="Sleeping pen" aria-disabled="true" aria-describedby="pen-help" style="left:0%">
+            <svg aria-hidden="true" viewBox="0 0 64 64"><path d="M18 9 Q22 5 27 9 L45 41 L44 56 L32 49 Z" fill="white" stroke="currentColor" stroke-width="2"/><path d="M32 49 L45 41 M44 56 L38 47 M20 14 L29 9 M24 17 L34 35" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+    <section class="letter-tray" aria-labelledby="tray-title">
+      <h2 id="tray-title" class="visually-hidden">Your letter blocks</h2>
+      <div class="tokens">
+        <button type="button" data-letter="u" aria-label="Choose u" aria-disabled="false">u</button>
+        <button type="button" data-letter="s" aria-label="Choose s" aria-disabled="false">s</button>
+        <button type="button" data-letter="i" aria-label="Choose i" aria-disabled="false">i</button>
+        <button type="button" data-letter="o" aria-label="Choose o" aria-disabled="false">o</button>
+      </div>
+    </section>
+    <div class="bench-feedback">
+    <div id="bench-spell-prompt" class="spell-prompt" data-spell-prompt hidden>
+      <p data-riddle></p>
+      <button type="button" aria-pressed="false">Hear the word</button>
+      <p class="visually-hidden" role="status" aria-atomic="true"></p>
+    </div>
+    <p id="instruction">Move your letters into the frame to finish the spell.</p>
+    <p id="block-help">Drag blocks between spaces or back to the tray. Keyboard: select a placed block, then choose its destination.</p>
+    <p id="pen-help">Trace each letter, then let go before the next. Keyboard: focus the pen, hold Right Arrow, then release.</p>
+    <p id="spell-status" role="status" aria-atomic="true"></p>
+    </div>
+    <div class="revision-controls">
+      <button type="button" id="undo" aria-disabled="true">Undo</button>
+      <button type="button" id="start-again" aria-disabled="true">Start again</button>
+      <button type="button" id="replay-movement" hidden>Trace again</button>
+      <button type="button" id="edit-spell" hidden>Edit spell</button>
+    </div>
+    </div>
+  </main>
+  <script type="module" src="src/workshop.js?v=story-joins-1"></script>
+  <script type="module" src="src/workshop-scene.js?v=riddle-1"></script>
+  <script type="module" src="src/awakening.js?v=ink-cat-1"></script>
+</body>
+</html>

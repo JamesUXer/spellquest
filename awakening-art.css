@@ -1,0 +1,17 @@
+/* The same tabletop becomes the stationary stage for the short ink creation. */
+.awakening{width:min(960px,100%);margin:8px auto 24px;padding:0 24px}
+#awakening-title.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%)}
+#attempted-spell{font:28px/1.2 Georgia,'Times New Roman',serif;margin:0 0 10px}
+#awakening-picture{display:block;width:100%;height:auto;max-height:none;aspect-ratio:900/430;margin:0;background:#ddd url('assets/workshop/workbench-surface-v1.png') left bottom/cover no-repeat;border:2px solid #333;overflow:hidden}
+#awakening-picture .awakening-table{display:none}
+#awakening-picture .cat-tail{stroke-width:5;stroke:#171717}
+#awakening-picture #question-stroke{stroke-width:5}
+.awakening-illustration{display:none;overflow:hidden;pointer-events:none}
+.awakening[data-art=illustrated] .awakening-fallback{display:none}
+.awakening[data-art=illustrated] .awakening-illustration{display:inline}
+#awakening-caption{width:100%;max-width:none;min-height:64px;padding:12px 18px;margin:14px 0;border:2px solid #222;border-radius:3px;background:#fff;font:18px/1.5 Georgia,'Times New Roman',serif;text-align:left}
+.awakening-controls{gap:10px}
+.awakening-controls button{min-height:48px;font:16px/1.5 Arial,sans-serif;padding:10px 18px;border-radius:3px}
+#receive-pen{background:#222;color:#fff}
+#receive-pen:hover{background:#444}
+@media(max-width:600px){.awakening{padding:0 12px}#attempted-spell{font-size:25px}#awakening-caption{min-height:80px;font-size:18px;padding:12px}.awakening-controls button{font-size:15px;padding:10px 14px}}
